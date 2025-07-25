@@ -1,0 +1,64 @@
+{% extends "generator/base.html" %}
+
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock style %}
+
+{% block content %}
+
+<div id="main">
+    <div id="main_section">
+        <div>
+            <h1>DevCommunity <>
+            </h1>
+            <p>A platform that brings together programmers to share knowledge, code, and solve problems together.</p>
+            <form action="">
+                <input type="text" placeholder="Search...">
+                <button>Search</button>
+            </form>
+        </div>
+        <div>
+            <img src="{% static 'images/developer.png' %}" alt="">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="question_section">
+            <h1>Last Questions</h1>
+            <div class="q_grid">
+                {% for q in questions %}
+                  <a class="q_card" href="{% url 'question:question_detail_view' q.question.id %}">
+                    <h3>{{q.question.title}}</h3>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <em style="font-size: 18px; color: gray;">{{q.question.created_at}}</em>
+                    </div>
+                    <div>
+                        {% for tag in q.tags %}
+                            <span>{{tag.name}}</span>
+                        {% endfor %}
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+
+        </div>
+        <div class="category_section">
+            <!-- <div></div> -->
+             {% for tag in tags %}
+                <a href="">{{tag.name}}</a>
+             {% endfor %}
+        </div>
+    </div>
+
+    <footer>
+        <p>Turki Ahmed</p>
+    </footer>
+</div>
+
+{% block js %}
+
+{% endblock js %}
+{% endblock content %}

@@ -1,0 +1,637 @@
+@font-face {
+    font-family: "MyFontBold";
+    src: url("../fonts/MangoGrotesque-Bold.woff") format("woff"),
+        url("../fonts/MangoGrotesque-Bold.woff2") format("woff2"),
+        url("../fonts/MangoGrotesque-BoldItalic.240621-1323.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MyFontLight";
+    src: url("../fonts/MangoGrotesque-Light.woff") format("woff"),
+        url("../fonts/MangoGrotesque-Light.woff2") format("woff2"),
+        url("../fonts/MangoGrotesque-LightItalic.240621-1323.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: "MyFontMedium";
+    src: url("../fonts/MangoGrotesque-Medium.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --w_color: #faf6e9;
+    --o_color: #e15130;
+    --b_color: #323129;
+    --y_color: #f3bb0f;
+    --p_color: #5546e7;
+    --wh_color: #f5f5f5;
+}
+
+
+main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 10% 0 0 0 ;
+}
+
+main .title {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    font-size: 15rem;
+    color: var(--b_color);
+    text-shadow: 0px -6px var(--p_color), 0px -12px var(--o_color), 0px -18px var(--y_color);
+    transition: all 0.4s 0.2s ease-in-out;
+}
+
+main .main_sections {
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    top: 60%;
+    right: 50%;
+    transform: translateY(-50%) translateX(50%);
+    transition: all 0.4s 0.2s ease-in-out;
+}
+
+main .main_sections>div {
+    width: 20vw;
+    height: 35vh;
+    background-color: var(--b_color);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main .main_sections>div:hover {
+    transform: scale(1.05) translateY(10%);
+    box-shadow: 0px -6px var(--p_color), 0px -12px var(--o_color), 0px -18px var(--y_color);
+
+}
+
+main .main_sections>div:first-child {
+    border-radius: 50% 0 0 0;
+}
+
+main .main_sections>div div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 2rem;
+    color: var(--y_color);
+}
+
+main .main_sections>div:last-child div {
+    color: var(--w_color);
+}
+
+main .main_sections>div div svg {
+    width: 30%;
+    align-self: flex-end;
+}
+
+main .main_sections>div div:last-child {
+    border: 3px solid var(--o_color);
+    padding: 10px;
+    height: 100%;
+    margin-top: 10px;
+    font-size: 1.3rem;
+    color: var(--o_color);
+    display: flex;
+    justify-content: start;
+    align-items: start;
+}
+
+main .main_sections>div:last-child div:last-child {
+    border: 3px solid var(--p_color);
+    color: var(--p_color);
+}
+
+
+main .logo {
+    width: 20%;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: rotate(-20deg);
+    transition: all 0.2s 0.6s ease-in-out;
+}
+
+/* 
+<form action="" class="form">
+        <div>
+            <label for="name">
+                Project Name
+            </label>
+            <input type="text" name="name" id="name" placeholder="Enter Project Name">
+        </div>
+        <div id="apps">
+            <button>add app</button>
+            <div>
+                <label for="app">app name</label>
+                <input type="text" name="apps">
+            </div>
+        </div>
+        <div>
+            <button>Next</button>
+        </div>
+    </form> */
+
+button {
+    font-family: "MyFontBold";
+    letter-spacing: 1px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+main .form {
+    width: 50vw;
+    background-color: var(--b_color);
+    border-radius: 5px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--w_color);
+    font-size: 2rem;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+main .form>div {
+    width: 100%;
+    padding: 20px;
+}
+
+main .form>div:first-child {
+    background-color: var(--p_color);
+    color: var(--w_color);
+}
+
+main .form div:first-child input {
+    background-color: var(--p_color);
+    color: var(--w_color);
+    border-radius: 2px;
+    border: 2px solid var(--w_color);
+    padding: 5px 10px;
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+}
+
+main .form #apps {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px -6px var(--p_color), 0px -12px var(--o_color), 0px -18px var(--y_color);
+
+}
+
+main .form #apps button {
+    background-color: var(--p_color);
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    align-self: flex-end;
+    color: var(--b_color);
+    margin-top: 20px;
+}
+
+main .form #apps div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: var(--p_color);
+    margin-top: 20px;
+}
+
+main .form #apps div input {
+    background-color: var(--b_color);
+    color: var(--p_color);
+    border-radius: 2px;
+    border: 2px solid var(--p_color);
+    padding: 5px 10px;
+    width: 100%;
+    height: 40px;
+}
+
+main .form #apps div label {
+    width: 20%;
+}
+main .form div:last-child {
+    display: flex;
+    align-items: end;
+    justify-content: end;
+}
+
+main .form div:last-child button {
+    background-color: var(--y_color);
+    padding: 10px;
+    border-radius: 5px;
+    color: var(--b_color);
+    margin-top: 20px;
+    border: none;
+}
+
+
+.form.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+
+/* home html style  */
+
+
+#main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+#main #main_section {
+    display: flex;
+    justify-content: space-between;
+    height: 60vh;
+    width: 100%;
+    font-size: 2rem;
+    align-items: center;
+    color: var(--w_color);
+    background-color: var(--b_color);
+    z-index: 500;
+    box-shadow: 0px 6px var(--p_color), 0px 12px var(--o_color), 0px 18px var(--y_color); 
+}
+#main #main_section > div {
+    padding: 50px;
+}
+#main #main_section div:first-child {
+    width: 100%;
+    height: 100%;
+    background-color: var(--p_color);
+    color: var(--w_color);
+}
+
+#main #main_section div:first-child h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+#main #main_section div:first-child p {
+    color: var(--y_color);
+}
+
+#main #main_section div:first-child form {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+#main #main_section div:first-child form input {
+    width: 100%;
+    height: 50px;
+    background: none;
+    border-radius: 10px;
+    border: 3px solid var(--y_color);
+    color: var(--y_color);
+    padding: 5px 10px;
+    font-size: 1.2rem;
+}
+
+#main #main_section div:first-child form button {
+    height: 50px;
+    background-color: var(--y_color);
+    border-radius: 10px;
+    color: var(--b_color);
+    padding: 5px 10px;
+    border: none;
+}
+#main #main_section div:last-child {
+    text-align: end;
+}
+
+#main #main_section div:last-child img{
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    height: auto;
+    /* padding: 70px 50px; */
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    /* gap: 20px; */
+    background-color: var(--o_color);
+}
+
+.container .question_section {
+    width: 70%;
+    background-color: var(--w_color);
+    /* box-shadow: 1px 1px 5px lightgray; */
+    /* border-radius: 10px; */
+    padding: 60px 30px;
+    position: relative;
+}
+
+.container .question_section > h1 {
+    position: absolute;
+    height: auto;
+    width: auto;
+    top: -25px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: var(--o_color);
+    border-radius: 10px;
+    color: var(--wh_color);
+    z-index: 501;
+}
+
+.container .question_section .q_grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .question_section .q_grid .q_card {
+    padding: 20px;
+    border: 3px solid var(--y_color);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--b_color);
+    font-size: 1.5rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.container .question_section .q_grid .q_card:hover {
+    transform: scale(0.95);
+    box-shadow: 4px 4px var(--p_color), 8px 8px var(--o_color), 12px 12px var(--y_color);
+}
+
+.container .question_section .q_grid .q_card span {
+    background-color: var(--p_color);
+    color: var(--w_color);
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 1rem;
+}
+
+.container .question_section .q_grid .q_card h3 {
+    width: 100%;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid lightgray;
+}
+
+.container .category_section {
+    width: 30%;
+    background-color: var(--o_color);
+    color: var(--b_color);
+    padding: 60px 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+    font-size: 2rem;
+    position: relative;
+
+}
+
+.container .category_section a {
+    padding: 20px;
+    background-color: var(--b_color);
+    color: var(--y_color);
+    text-decoration: none;
+    width: 100%;
+    border-radius: 50px;
+    text-align: center;
+
+}
+
+.container .category_section a:nth-child(2){
+    background-color: var(--y_color);
+    color: var(--o_color);
+}
+
+.container .category_section a:last-child{
+    background-color: var(--p_color);
+}
+
+#main footer {
+    width: 100%;
+    background-color: var(--b_color);
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: var(--y_color);
+    box-shadow: 0px -6px var(--p_color), 0px -12px var(--o_color), 0px -18px var(--y_color);
+    z-index: 501;
+}
+
+/* detail page  */
+#main .header {
+    width: 100vw;
+    height: 100px;
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    background-color: var(--w_color);
+    box-shadow: 0px 6px var(--p_color), 0px 12px var(--o_color), 0px 18px var(--y_color);
+    font-size: 2rem;
+    color: var(--p_color);
+    transform: skewY(1deg);
+    position: absolute;
+    padding: 10px 30px;
+    top: -13px;
+    z-index: 501;
+}
+
+#main .header h1 {
+    transform: skewY(-1deg);
+}
+
+#main .content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 50px 0 0 0;
+}
+
+#main .content > * {
+    align-self: flex-start;
+}
+
+#main .content .related_questions{
+    width: 30%;
+    background-color: var(--p_color);
+}
+
+
+#main .question_content {
+    width: 55%;
+    font-size: 1.5rem;
+    padding: 100px 30px 100px 30px;
+}
+
+#main .question_content .question > p{
+    color: gray;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid lightgray;
+}
+
+#main .question_content .tags {
+    padding: 10px 0;
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+
+#main .question_content .tags a {
+    padding: 5px 10px;
+    text-decoration: none;
+    color: var(--w_color);
+    background-color: var(--y_color);
+    border-radius: 50px;
+    font-size: 1rem;
+}
+
+#main .question_content .question_parts {
+    padding: 20px;
+    border: 2px solid var(--y_color);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    border-radius: 10px;
+    gap: 20px;
+    position: relative;
+}
+
+#main .question_content .question_parts div {
+    width: 100%;
+}
+
+#main .question_content .question_parts pre {
+    margin: 0;
+    height: fit-content;
+}
+
+#main .question_content .question_parts code {
+    width: 100%;
+    font-size: 12px;
+}
+
+#main .question_content .question_parts em {
+    position: absolute;
+    color: gray;
+    bottom: 5px;
+    right: 5px;
+    font-size: 16px;
+}
+
+#main .question_content .question_parts strong {
+    color: var(--p_color);
+}
+
+#main .question_content .answer {
+    border: 2px solid var(--p_color);
+    margin-top: 30px;
+}
+
+#main .content .related_questions {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    transform: skewY(6deg);
+    padding-top: 70px;
+    padding-bottom: 50px;
+    border-radius: 0 0px 10px 0;
+}
+
+#main .content .related_questions a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    font-size: 1.5rem;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid var(--w_color);
+    color: var(--w_color);
+    transform: skewY(-6deg);
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+#main .content .related_questions a:hover {
+    transform: scale(0.95)  skewY(-6deg);
+    box-shadow: 4px 4px var(--p_color), 8px 8px var(--o_color), 12px 12px var(--y_color);
+}
+
+
+ #main .category {
+    width: 15%;
+    background-color: var(--b_color);
+    padding: 100px 10px 30px 10px;
+    border-radius: 0px 0 0px 10px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+ }
+
+  #main .category a {
+    color: var(--b_color);
+    text-decoration: none;
+    background-color: var(--y_color);
+    padding: 5px 10px;
+    font-size: 1rem;
+    border-radius: 50px;
+    text-align: center;
+    height: fit-content;
+  }
+
+ 
+.hljs {
+  border-radius: 10px;
+  margin: 0;
+  height: fit-content;
+}
